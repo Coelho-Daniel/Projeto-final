@@ -25,17 +25,30 @@ alemanha.addEventListener("click", setTimeAlemanha);
 australia.addEventListener("click", setTimeAustralia);
 chile.addEventListener("click", setTimeChile);
 china.addEventListener("click", setTimeChina);
+
 dinamarca.addEventListener("click", setTimeDinamarca);
+
 egipto.addEventListener("click", setTimeEgipto);
+
 franca.addEventListener("click", setTimeFranca);
+
 indonesia.addEventListener("click", setTimeIndonesia);
+
 inglaterra.addEventListener("click", setTimeInglaterra);
+
 italia.addEventListener("click", setTimeItalia);
+
 japao.addEventListener("click", setTimeJapao);
+
 mexico.addEventListener("click", setTimeMexico);
+
 novaYork.addEventListener("click", setTimeNovaYork);
+
 portugal.addEventListener("click", setTimePortugal);
+
 ucrania.addEventListener("click", setTimeUcrania);
+
+
 
 //Criar variavel do intervalo
 var intervalo = 0;
@@ -72,402 +85,27 @@ const offset = async () => {
         setRotation(minuteHand, minutesRatio);
         setRotation(hourHand, hourRatio);
         
-      }
-      console.log(offset);
+        changeCicle(date)
+      } 
     //Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
-      function changeTheme() {
-        if (0 + date.getHours() == 0){
-          if (offset >= 9) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -3) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 1){
-          if (offset >= 8) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -4) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 2){
-          if (offset >= 7) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -5) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 3){
-          if (offset >= 6) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -6) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 4){
-          if (offset >= 5) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -7) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 5){
-          if (offset >= 4) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -8) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 6){
-          if (offset >= 3) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -9) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 7){
-          if (offset >= 2) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -10) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 8){
-          if (offset >= 1) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset >= -11) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 9){
-          if (offset >= 12) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= 0) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 10){
-          if (offset >= 11) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -1) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 11){
-          if (offset >= 10) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -2) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }
-        else if(0 + date.getHours() == 12){
-          if (offset >= 9) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -3) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 13){
-          if (offset >= 8) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -4) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 14){
-          if (offset >= 7) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -5) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 15){
-          if (offset >= 6) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -6) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 16){
-          if (offset >= 5) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -7) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 17){
-          if (offset >= 4) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -8) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 18){
-          if (offset >= 3) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -9) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 19){
-          if (offset >= 2) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -10) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 20){
-          if (offset >= 1) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -11) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 21){
-          if (offset >= 0) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= -12) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 22){
-          if (offset >= -1) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= 0) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        }else if(0 + date.getHours() == 23){
-          if (offset >= -2) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color =
-              "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          } else {
-            console.log("dia");
-            document.getElementById("Titulo").style.color = "black";
-            document.body.style.backgroundColor = "#cccccc";
-          }
-          if (offset <= 1) {
-            console.log("noite");
-            document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-            document.body.style.backgroundColor = "#363636";
-          }
-        } 
-      }
-      changeTheme();
-    });
-};
-offset();
 
+      function changeCicle(date) {
+        const hours = date.getHours()
+        console.log(hours);
+        if (hours >= 19) {
+          console.log("noite");
+          document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
+          document.body.style.backgroundColor = "#363636";
+        } else {
+          console.log("dia");
+          document.getElementById("Titulo").style.color = "black";
+          document.body.style.backgroundColor = "#cccccc";
+        }
+      }
+    }
+)}
+
+      
 //Criar funções para alterar o url da API
 function setTimeAlemanha() {
   apiUrl = "https://worldtimeapi.org/api/timezone/europe/berlin";
@@ -500,7 +138,7 @@ function setTimeEgipto() {
   offset();
 }
 function setTimeFranca() {
-  apiUrl = "https://worldtimeapi.org/api/timezone/Asia/Hong_Kong";
+  apiUrl = "https://worldtimeapi.org/api/timezone/Europe/Paris";
   clearInterval(intervalo);
   offset();
 }
