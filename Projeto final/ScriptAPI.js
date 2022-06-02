@@ -101,9 +101,11 @@ const offset = async () => {
       }
     }
 )}
+offset();
 
       
-//Criar funções para alterar o url da API
+//Criar funções para alterar o url da API~
+
 function setTimeAlemanha() {
   apiUrl = "https://worldtimeapi.org/api/timezone/europe/berlin";
   clearInterval(intervalo);
