@@ -1,0 +1,153 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "Titillium Web";
+}
+body {
+  background-color: #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  flex-grow: 4;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+#Titulo {
+  color: black;
+  text-align: center;
+
+  font-size: 4rem;
+}
+.paises {
+  margin-bottom: 60px;
+}
+.relogio {
+  width: 450px;
+  height: 450px;
+  background-color: rgba(255, 255, 255, 75%);
+  border: 2px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+
+.relogio .numero {
+  --rotation: 0;
+  position: absolute;
+  font-size: 3rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+}
+.relogio .numero1 {
+  --rotation: 30deg;
+}
+.relogio .numero2 {
+  --rotation: 60deg;
+}
+.relogio .numero3 {
+  --rotation: 90deg;
+}
+.relogio .numero4 {
+  --rotation: 120deg;
+}
+.relogio .numero5 {
+  --rotation: 150deg;
+}
+.relogio .numero6 {
+  --rotation: 180deg;
+}
+.relogio .numero7 {
+  --rotation: 210deg;
+}
+.relogio .numero8 {
+  --rotation: 240deg;
+}
+.relogio .numero9 {
+  --rotation: 270deg;
+}
+.relogio .numero10 {
+  --rotation: 300deg;
+}
+.relogio .numero11 {
+  --rotation: 330deg;
+}
+
+.relogio::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.relogio .ponteiro {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 3%;
+  height: 30%;
+  background-color: black;
+  border: 1px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  transform-origin: bottom;
+}
+.relogio .ponteiro.horas {
+  width: 3%;
+  height: 30%;
+  background-color: black;
+}
+.relogio .ponteiro.minutos {
+  width: 2.5%;
+  height: 37%;
+  background-color: black;
+  border: 1px solid white;
+}
+.relogio .ponteiro.segundos {
+  width: 1.1%;
+  height: 45%;
+  background-color: #153561;
+  border: 1px solid white;
+}
+.paises {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.paises button {
+  margin: 1px;
+  background-color: #153561; /* Green */
+  border: none;
+  color: white;
+  padding: 0px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.paises button:hover {
+  background-color: #153561df; /* Green */
+  color: white;
+}
+
+/* Dark Theme */
+
+.container.dark{
+  background: rgb(0, 17, 29);
+  color: #fafafa;
+}
+
+.container.dark p{
+  border: 2px solid rgb(98,98,98);
+}
