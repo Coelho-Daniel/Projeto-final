@@ -91,13 +91,10 @@ const offset = async () => {
 
       function changeCicle(date) {
         const hours = date.getHours()
-        console.log(hours);
-        if (hours >= 19) {
-          console.log("noite");
+        if (hours >= 19 || hours <= 7) {
           document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
           document.body.style.backgroundColor = "#363636";
         } else {
-          console.log("dia");
           document.getElementById("Titulo").style.color = "black";
           document.body.style.backgroundColor = "#cccccc";
         }

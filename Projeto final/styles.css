@@ -14,12 +14,15 @@ body {
   flex-grow: 4;
   margin-left: 300px;
   margin-right: 300px;
+  transition: all 500ms ease-in-out;
+  overflow: hidden;
 }
 #Titulo {
   color: black;
   text-align: center;
 
   font-size: 4rem;
+  transition: all 500ms ease-in-out;
 }
 .paises {
   margin-bottom: 60px;
