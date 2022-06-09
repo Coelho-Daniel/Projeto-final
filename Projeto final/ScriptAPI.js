@@ -52,17 +52,23 @@ ucrania.addEventListener("click", setTimeUcrania);
 
 //Criar variavel do intervalo
 var intervalo = 0;
+let intervalo1 = 0;
 //Criar nova variavel "data"   com o nome de "date"
 let date = new Date();
 
 //Codigo para mover os ponteiros
 const offset = async () => {
   let offset;
+  let dataData;
+  let dia;
   fetch(apiUrl)
     .then((res) => res.json())
     .then((data) => {
       offset = data.utc_offset;
       offset = parseInt(offset);
+      dataData = data.datetime;
+      dia = dataData.split("T");
+      
 //Criar constante para os ponteiros; hourHand, ponteiro das horas; minuteHand, ponteiro dos minutos; secondHand, ponteiro dos segundos        
       const hourHand = document.querySelector("[data-hour-hand]");
       const minuteHand = document.querySelector("[data-minute-hand]");
@@ -73,7 +79,7 @@ const offset = async () => {
       }
 //Atribuir um "setInterval" à variavel "intervalo"
       intervalo = setInterval(setTime, 1);
-      
+//GE      
       function setTime() {
         date = new Date()
         date.setHours(date.getHours() - 1 + offset);
@@ -84,9 +90,24 @@ const offset = async () => {
         setRotation(secondHand, secondsRatio);
         setRotation(minuteHand, minutesRatio);
         setRotation(hourHand, hourRatio);
-        
         changeCicle(date)
+        intervalo1 = setInterval(mudarTexto(date), 1000)
+        return date
       } 
+
+    //criar toggle
+        const body = document.querySelector('body');
+        const toggle = document.getElementById('toggle');
+        const relogio = document.querySelector('.relogio');
+        const clockD = document.querySelector('.clock-container');
+        
+        toggle.addEventListener('click', toggle1);
+        function toggle1(){
+            toggle.classList.toggle('active');
+            body.classList.toggle('active');
+            relogio.classList.toggle('desaparecer');
+            clockD.classList.toggle('aparecer');
+        }
     //Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
 
       function changeCicle(date) {
@@ -94,11 +115,58 @@ const offset = async () => {
         if (hours >= 19 || hours <= 7) {
           document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
           document.body.style.backgroundColor = "#363636";
+          document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
+          document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";     
         } else {
           document.getElementById("Titulo").style.color = "black";
           document.body.style.backgroundColor = "#cccccc";
+          document.getElementById("h2Pais").style.color = "black";
+          document.getElementById("h2Date").style.color = "black";
         }
       }
+
+    //Mudar texto do dia
+      function mudarTexto(data){
+        Horas = data.getHours()
+        Minutos = data.getMinutes()
+        Segundos = data.getSeconds()  
+        document.getElementById("h2Date").innerHTML = dia[0];
+      }
+      
+
+      document.addEventListener('DOMContentLoaded', () =>
+  requestAnimationFrame(updateTime)
+)
+
+function updateTime() {
+
+  let date = setTime()
+  let dia = "Seg"
+
+  if(date.getDay() == 1){
+    dia = "Seg"
+  }else if(date.getDay() == 2){
+    dia = "Ter"
+  }else if(date.getDay() == 3){
+    dia = " Qua"
+  }else if(date.getDay() == 4){
+    dia = "Qui"
+  }else if(date.getDay() == 5){
+    dia = "Sex"
+  }else if(date.getDay() == 6){
+    dia = "Sab"
+  }else if(date.getDay() == 7) {
+    dia = "Dom"
+  }
+  document.documentElement.style.setProperty('--timer-day', "'" + dia + "'");
+  document.documentElement.style.setProperty('--timer-hours', "'" + date.getHours() + "'");
+  document.documentElement.style.setProperty('--timer-minutes', "'" + date.getMinutes() + "'");
+  document.documentElement.style.setProperty('--timer-seconds', "'" + date.getSeconds() + "'");
+  console.log(date.getHours);
+  requestAnimationFrame(updateTime);
+}
+updateTime();
+
     }
 )}
 offset();
@@ -109,76 +177,92 @@ offset();
 function setTimeAlemanha() {
   apiUrl = "https://worldtimeapi.org/api/timezone/europe/berlin";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Alemanha: ";
+  
   offset();
 }
 function setTimeAustralia() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Australia/Sydney";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Austrália:";
   offset();
 }
 function setTimeChile() {
   apiUrl = "https://worldtimeapi.org/api/timezone/america/santiago";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Chile:";
   offset();
 }
 function setTimeChina() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Asia/Hong_Kong";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "China:";
   offset();
 }
 function setTimeDinamarca() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Europe/Copenhagen";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Dinamarca:";
   offset();
 }
 function setTimeEgipto() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Africa/Cairo";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Egipto:";
   offset();
 }
 function setTimeFranca() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Europe/Paris";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "França:";
   offset();
 }
 function setTimeIndonesia() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Asia/Jakarta";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Indonésia:";
   offset();
 }
 function setTimeInglaterra() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Europe/London";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Inglaterra:";
   offset();
 }
 function setTimeItalia() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Europe/Rome";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Itália:";
   offset();
 }
 function setTimeJapao() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Asia/Tokyo";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Japão:";
   offset();
 }
 function setTimeMexico() {
   apiUrl = "https://worldtimeapi.org/api/timezone/America/Mexico_City";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "México:";
   offset();
 }
 function setTimeNovaYork() {
   apiUrl = "https://worldtimeapi.org/api/timezone/America/New_York";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "NovaYork:";
   offset();
 }
 function setTimePortugal() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Europe/Lisbon";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Portugal:";
   offset();
 }
 function setTimeUcrania() {
   apiUrl = "https://worldtimeapi.org/api/timezone/Europe/Kiev";
   clearInterval(intervalo);
+  document.getElementById("h2Pais").innerHTML = "Ucrânia:";
   offset();
 }
 
