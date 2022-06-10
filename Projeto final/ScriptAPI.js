@@ -112,6 +112,8 @@ const offset = async () => {
     //night day
 
 function getImageFromSearch(search = "sky day") {
+  //const apiKey = process.env.REACT_APP_APIKey
+  //sconst apiSecret = process.env.REACT_APP_APISecret
   const baseUrl = "https://pixabay.com/api/";
   const KEY = "27953217-305d31ec9589e260be4028d1c";
   const ITEMS_COUNT = 10;
@@ -126,7 +128,9 @@ function getImageFromSearch(search = "sky day") {
           image_type: 'photo',
           per_page: ITEMS_COUNT,
           min_width: 1920
+          
       }
+      
   })
       .then(function (response) {
           const data = JSON.parse(response.data);
@@ -145,7 +149,9 @@ function getImageFromSearch(search = "sky day") {
 
       });
 }
-
+window.addEventListener('load', (event) => {
+  setTimePortugal;
+});
     //Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
 
       function changeCicle(date) {
@@ -156,7 +162,7 @@ function getImageFromSearch(search = "sky day") {
          
          document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
           document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
-          queri= "night day";
+          ueri= "night sky";
         } else {
         
           document.body.style.backgroundColor = "#cccccc";
@@ -167,11 +173,11 @@ function getImageFromSearch(search = "sky day") {
           /*  document.getElementById("Titulo").style.color = "black";
           document.getElementById("h2Pais").style.color = "black";
           document.getElementById("h2Date").style.color = "black";*/
-          queri= "sky day";
+          ueri= "day sky";
            
         }
       }
-      getImageFromSearch(queri);
+      getImageFromSearch(ueri);
 
     //Mudar texto do dia
       function mudarTexto(data){
