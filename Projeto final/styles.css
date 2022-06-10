@@ -102,7 +102,21 @@ body.active{
 .relogio .numero11 {
   --rotation: 330deg;
 }
-
+.daynight{
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  padding: 15px;  
+  font-weight: bold;
+  bottom: 100px;
+  left: 46%;
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .relogio::after {
   content: "";
   position: absolute;
@@ -193,9 +207,6 @@ body.active{
 
 /*digital watch*/
 
-body{
-    background-color: #02070d;
-}
 .container1{
   margin: 14px;
     z-index: 1;
