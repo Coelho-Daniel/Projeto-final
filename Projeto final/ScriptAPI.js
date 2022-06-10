@@ -1,6 +1,14 @@
 //Criar variavel com o nome de "apiURL" com o url da API
 let apiUrl = "https://worldtimeapi.org/api/timezone/europe/lisbon";
 let query ;
+
+//tempo portugal default
+if(window.addEventListener) {
+  window.addEventListener('load',setTimePortugal,false); //W3C
+} else {
+  window.attachEvent('onload',setTimePortugal); //IE
+}
+
 //Selecionar butoes paises
 let alemanha = document.getElementById("alemanha");
 let australia = document.getElementById("australia");
@@ -110,7 +118,6 @@ const offset = async () => {
         }
 
     //night day
-
 function getImageFromSearch(search = "sky day") {
   //const apiKey = process.env.REACT_APP_APIKey
   //sconst apiSecret = process.env.REACT_APP_APISecret
@@ -149,9 +156,7 @@ function getImageFromSearch(search = "sky day") {
 
       });
 }
-window.addEventListener('load', (event) => {
-  setTimePortugal;
-});
+
     //Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
 
       function changeCicle(date) {
