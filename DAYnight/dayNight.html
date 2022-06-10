@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Lindo Site ❤️</title>
+</head>
+
+<style>
+    *,
+    html {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #282828;
+        width: 100vw;
+        height: 100vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+    integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<body>
+
+    <button id="getImage">Get Image</button>
+    <input type="text" id="query" value="sky day">
+
+    <script type="text/javascript">
+        function getImageFromSearch(search = "sky day") {
+            const baseUrl = "https://pixabay.com/api/";
+            const KEY = "27953217-305d31ec9589e260be4028d1c";
+            const ITEMS_COUNT = 10;
+
+            axios({
+                method: 'get',
+                url: baseUrl,
+                responseType: "application/json",
+                params: {
+                    key: KEY,
+                    q: search,
+                    image_type: 'photo',
+                    per_page: ITEMS_COUNT,
+                    min_width: 1920
+                }
+            })
+                .then(function (response) {
+                    const data = JSON.parse(response.data);
+                    let imagesArr = [];
+
+                    if("hits" in data){
+                        imagesArr = data.hits;
+                    }
+
+                    const index = Math.floor((Math.random() * ITEMS_COUNT) + 0);
+                    const finalImage = imagesArr[index].largeImageURL;
+
+                    const body = document.querySelector("body");
+
+                    body.style.backgroundImage = "url('"+finalImage+"')";
+
+                });
+        }
+
+        document.getElementById("getImage")
+            .addEventListener("click", function(){
+                const query = document.getElementById("query").value;
+                getImageFromSearch(query);
+            });
+    </script>
+</body>
+
+</html>

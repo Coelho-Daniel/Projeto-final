@@ -1,6 +1,6 @@
 //Criar variavel com o nome de "apiURL" com o url da API
 let apiUrl = "https://worldtimeapi.org/api/timezone/europe/lisbon";
-
+let query ;
 //Selecionar butoes paises
 let alemanha = document.getElementById("alemanha");
 let australia = document.getElementById("australia");
@@ -108,22 +108,70 @@ const offset = async () => {
             relogio.classList.toggle('desaparecer');
             clockD.classList.toggle('aparecer');
         }
+
+    //night day
+
+function getImageFromSearch(search = "sky day") {
+  const baseUrl = "https://pixabay.com/api/";
+  const KEY = "27953217-305d31ec9589e260be4028d1c";
+  const ITEMS_COUNT = 10;
+
+  axios({
+      method: 'get',
+      url: baseUrl,
+      responseType: "application/json",
+      params: {
+          key: KEY,
+          q: search,
+          image_type: 'photo',
+          per_page: ITEMS_COUNT,
+          min_width: 1920
+      }
+  })
+      .then(function (response) {
+          const data = JSON.parse(response.data);
+          let imagesArr = [];
+
+          if("hits" in data){
+              imagesArr = data.hits;
+          }
+
+          const index = Math.floor((Math.random() * ITEMS_COUNT) + 0);
+          const finalImage = imagesArr[index].largeImageURL;
+
+          const body = document.querySelector("body");
+
+          body.style.backgroundImage = "url('"+finalImage+"')";
+
+      });
+}
+
     //Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
 
       function changeCicle(date) {
         const hours = date.getHours()
         if (hours >= 19 || hours <= 7) {
-          document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-          document.body.style.backgroundColor = "#363636";
-          document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
-          document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";     
+           document.body.style.backgroundColor = "#363636";
+           document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
+         
+         document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
+          document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
+          queri= "night day";
         } else {
-          document.getElementById("Titulo").style.color = "black";
+        
           document.body.style.backgroundColor = "#cccccc";
+          document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
+         
+         document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
+          document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
+          /*  document.getElementById("Titulo").style.color = "black";
           document.getElementById("h2Pais").style.color = "black";
-          document.getElementById("h2Date").style.color = "black";
+          document.getElementById("h2Date").style.color = "black";*/
+          queri= "sky day";
+           
         }
       }
+      getImageFromSearch(queri);
 
     //Mudar texto do dia
       function mudarTexto(data){
@@ -265,6 +313,9 @@ function setTimeUcrania() {
   document.getElementById("h2Pais").innerHTML = "Ucrânia:";
   offset();
 }
+
+
+
 
 
 
