@@ -77,34 +77,6 @@ function toggle1() {
   relogio.classList.toggle('desaparecer');
   clockD.classList.toggle('aparecer');
 }
-//Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
-
-function changeCicle(date) {
-
-  const hours = date.getHours()
-  if (hours >= 19 || hours <= 7) {
-    document.body.style.backgroundColor = "#363636";
-    document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-
-    document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
-    document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
-    ueri = "night sky";
-    ampm = "Pm";
-  } else {
-
-    document.body.style.backgroundColor = "#cccccc";
-    document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
-
-    document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
-    document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
-    /*  document.getElementById("Titulo").style.color = "black";
-    document.getElementById("h2Pais").style.color = "black";
-    document.getElementById("h2Date").style.color = "black";*/
-    ueri = "day sky";
-    ampm = "Am";
-
-  }
-}
 //Codigo para mover os ponteiros
 const offset = async () => {
   let offset;
@@ -186,7 +158,44 @@ const offset = async () => {
           });
       }
 
-      
+      //Criar função para mudança da cor do Titulo e do fundo consoante se está de dia ou noite
+
+      function changeCicle(date) {
+
+        const hours = date.getHours()
+        if (hours >= 19 || hours <= 7) {
+          document.body.style.backgroundColor = "#363636";
+          document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
+
+          document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
+          document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
+          ueri = "night sky";
+          
+        } else {
+
+          document.body.style.backgroundColor = "#cccccc";
+          document.getElementById("Titulo").style.color = "rgba(255, 255, 255, 75%)";
+
+          document.getElementById("h2Pais").style.color = "rgba(255, 255, 255, 75%)";
+          document.getElementById("h2Date").style.color = "rgba(255, 255, 255, 75%)";
+          /*  document.getElementById("Titulo").style.color = "black";
+          document.getElementById("h2Pais").style.color = "black";
+          document.getElementById("h2Date").style.color = "black";*/
+          ueri = "day sky";
+          
+
+        }
+
+        
+        if(hours >= 12 || hours <= 7)
+        {
+          ampm = "Pm";
+        }
+        else 
+        {
+          ampm = "Am";
+        }
+      }
       //mudar texto ampm
       let am = document.querySelector('.daynight');
       am.innerHTML = ampm;
